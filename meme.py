@@ -178,6 +178,7 @@ async def meme(c,*,meme):
 
 			mh.set_author(name='.meme <name>  OR  .m <name>')
 			mh.add_field(name='Where <name> is:',value='badum\n\twow\n\tfbi\n\tilluminati\n\tmoment\n\tairhorn\n\tbruh\n\toof\n\tnani\n\tsad\n\tsnoop\n\twhy\n\tyeet',inline=False)
+			mh.add_field(name='Malay memes:',value='2kali\n\tbetul\n\takal\n\tkur',inline=False)
 			await c.send(embed=mh)
 	except:
 		pass
