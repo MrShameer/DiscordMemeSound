@@ -27,7 +27,7 @@ def insert(i,j,k):
 
 def search():
 	#pytz.timezone("Asia/Kuala_Lumpur")
-	dt=datetime.datetime.now() + datetime.timedelta(hours=8,minutes=10)
+	dt=datetime.datetime.now().astimezone(pytz.timezone("Asia/Kuala_Lumpur")) + datetime.timedelta(minutes=10)
 	cur.execute("SELECT Id, Mentions, Messages FROM Reminder WHERE Day < ?;",(dt.strftime("%c"),))
 	return cur.fetchall()
 
