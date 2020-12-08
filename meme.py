@@ -167,6 +167,10 @@ async def meme(c,*,meme):
 			kali = discord.FFmpegPCMAudio('Sounds/Malay/akal.mp3')
 			voice_client.play(kali, after=None)
 
+		elif(meme=="kur"):
+			kali = discord.FFmpegPCMAudio('Sounds/Malay/kur.mp3')
+			voice_client.play(kali, after=None)
+
 		else:
 			mh = discord.Embed(
 				colour = discord.Colour.orange()
@@ -181,24 +185,28 @@ async def meme(c,*,meme):
 
 @b.command(pass_c=True)
 async def help(c):
-	author = c.message.author
-	embed = discord.Embed(
-		colour = discord.Colour.orange()
-	)
+	try:
+		author = c.message.author
+		embed = discord.Embed(
+			colour = discord.Colour.orange()
+		)
 
-	embed.set_author(name='Help')
-	embed.add_field(name='.join',value='Join voice channel',inline=False)
-	embed.add_field(name='.leave',value='Leave voice channel',inline=False)
-	embed.add_field(name='.meme help',value='See memes commanands',inline=False)
-	embed.add_field(name='.meme random',value='Play random memes',inline=False)
-	embed.add_field(name='.remind help',value='See reminder commands',inline=False)
+		embed.set_author(name='Help')
+		embed.add_field(name='.join',value='Join voice channel',inline=False)
+		embed.add_field(name='.leave',value='Leave voice channel',inline=False)
+		embed.add_field(name='.meme help',value='See memes commanands',inline=False)
+		embed.add_field(name='.meme random',value='Play random memes',inline=False)
+		embed.add_field(name='.remind help',value='See reminder commands',inline=False)
 
-	await c.send(embed=embed)
+		await c.send(embed=embed)
+		
+	except:
+		pass
 
 
 @b.command(aliases=['r','reminder'])
 async def remind(c,*,remind):
-	d,t=[],[]
+	#d,t=[],[]
 	if(remind=="help"):
 		embed = discord.Embed(
 			colour = discord.Colour.orange()
