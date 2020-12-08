@@ -22,6 +22,22 @@ async def on_member_remove(member):
 async def on_ready():
 	print('Bot is up and running sir.')
 	find.start()
+	try:
+		act = os.getenv('ACT')
+		sta = os.getenv('STA')
+
+		if act == 'PLAY':
+			await b.change_presence(activity=discord.Game(name=sta))
+		elif act == 'STREAM':
+			await b.change_presence(activity=discord.Streaming(name=sta))
+		elif act == 'LISTEN':
+			await b.change_presence(activity=discord.Activity(type=discord.ActivityType.listening, name=sta))
+		elif act == 'WATCH':
+			await b.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name=sta))
+	except:
+		print("status error")
+		pass
+	
 	for ser in b.guilds: 
 		for channel in ser.text_channels:
 			if channel.permissions_for(ser.me).send_messages:
