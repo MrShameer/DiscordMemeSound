@@ -206,7 +206,7 @@ async def remind(c,*,remind):
 			#pytz.timezone("Asia/Kuala_Lumpur")
 			if(len(d)==3 and len(t)==2 and dt>datetime.datetime.now(pytz.timezone("Asia/Kuala_Lumpur"))):
 				connect(c.guild.id)
-				insert(r[0],r[1],dt.strftime("%c"))
+				insert(r[0],r[1],dt.strftime("%Y-%m-%d %H:%M"))
 			else:
 				embed = discord.Embed(
 					colour = discord.Colour.orange()
@@ -224,11 +224,10 @@ async def remind(c,*,remind):
 
 @b.command()
 async def who(c,*,ext):
-	if "handsome" in ext or "hensem" in ext:
-		if c.author.id == os.getenv('HAPPY'):
-			await c.send('You are the most handsome person in this server, Shameer')
-		else:
-			await c.send('I do not want to answer that')
+	if c.author.id == os.getenv('HAPPY'):
+		await c.send('You are the most handsome person in this server, Shameer')
+	else:
+		await c.send('I do not want to answer that')
 
 
 b.run(os.getenv('TOKEN'))
