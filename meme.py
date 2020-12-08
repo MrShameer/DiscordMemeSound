@@ -29,7 +29,7 @@ async def on_ready():
 		if act == 'PLAY':
 			await b.change_presence(activity=discord.Game(name=sta))
 		elif act == 'STREAM':
-			await b.change_presence(activity=discord.Streaming(name=sta))
+			await b.change_presence(activity=discord.Streaming(name=sta, url=os.getenv('URL')))
 		elif act == 'LISTEN':
 			await b.change_presence(activity=discord.Activity(type=discord.ActivityType.listening, name=sta))
 		elif act == 'WATCH':
