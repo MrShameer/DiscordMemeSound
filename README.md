@@ -1,3 +1,3 @@
 # DiscordMemeSound
-A simple bot to play popular meme sounds in voice channel
-The bot token has changed and is not the same as the code in meme.py
+A simple bot to play popular meme sounds in voice channel.
+It also can store remindrs and notify the people mentioned, 10 minutes before the event.
