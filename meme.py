@@ -4,7 +4,7 @@ import asyncio, datetime, pytz
 from Database import *
 
 l = ["badum","wow","fbi","illuminati","moment","airhorn","bruh","oof","nani","sad","snoop","why","yeet"]
-b = commands.Bot(command_prefix = os.getenv())
+b = commands.Bot(command_prefix = os.getenv('PREFIX'))
 
 b.remove_command('help')
 
