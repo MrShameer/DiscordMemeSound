@@ -201,9 +201,10 @@ async def remind(c,*,remind):
 			t=[r[3][0:2],r[3][2:4]]
 			t = list(map(int, t))
 			dt = datetime.datetime(year=int(d[2]),month=int(d[1]),day=int(d[0]),hour=int(t[0]),minute=int(t[1]))
+			dt = pytz.timezone("Asia/Kuala_Lumpur").localize(dt)
 			#,tzinfo=pytz.timezone("Asia/Kuala_Lumpur")
 			#pytz.timezone("Asia/Kuala_Lumpur")
-			if(len(d)==3 and len(t)==2 and dt>datetime.datetime.now()+datetime.timedelta(hours=8)):
+			if(len(d)==3 and len(t)==2 and dt>datetime.datetime.now(pytz.timezone("Asia/Kuala_Lumpur"))):
 				connect(c.guild.id)
 				insert(r[0],r[1],dt.strftime("%c"))
 			else:
