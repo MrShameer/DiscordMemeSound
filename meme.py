@@ -4,7 +4,7 @@ import asyncio, datetime, pytz
 from Database import *
 
 l = ["badum","wow","fbi","illuminati","moment","airhorn","bruh","oof","nani","sad","snoop","why","yeet"]
-b = commands.Bot(command_prefix = os.getenv())
+b = commands.Bot(command_prefix = os.getenv('PREFIX'))
 
 b.remove_command('help')
 
@@ -145,6 +145,10 @@ async def meme(c,*,meme):
 
 		elif(meme=="betul"):
 			kali = discord.FFmpegPCMAudio('Sounds/Malay/betulahtu.mp3')
+			voice_client.play(kali, after=None)
+
+		elif(meme=="akal"):
+			kali = discord.FFmpegPCMAudio('Sounds/Malay/akal.mp3')
 			voice_client.play(kali, after=None)
 
 		else:
