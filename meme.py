@@ -213,7 +213,7 @@ async def help(c):
 		embed.add_field(name='.meme help',value='See Memes commanands',inline=False)
 		embed.add_field(name='.meme random',value='Play Random memes',inline=False)
 		embed.add_field(name='.remind help',value='See Reminder commands',inline=False)
-		embed.add_field(name='.send help',value='See Send commands',inline=False)
+		#embed.add_field(name='.send help',value='See Send commands',inline=False)
 
 		await c.send(embed=embed)
 		
