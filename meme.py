@@ -291,7 +291,7 @@ async def send(c,*sd):
 		embed = discord.Embed(
 			colour = discord.Colour.orange()
 		)
-		embed.set_author(name='Send')
+		embed.set_author(name='Send (beta)')
 		embed.add_field(name='.send <number with country code> <space> <messages>',value='Send whatsapp messages to the number entered',inline=False)
 		embed.add_field(name='Message Format',value='It will include the name of the server and the discord name of the sender',inline=False)
 		await c.send(embed=embed)
