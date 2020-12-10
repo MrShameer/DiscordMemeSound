@@ -273,7 +273,7 @@ async def who(c,*,ext):
 
 
 @b.command()
-async def send(c,num,msg):
+async def send(c,*sd):
 	if len(sd) == 2:
 		try:
 			message = client.messages.create(
