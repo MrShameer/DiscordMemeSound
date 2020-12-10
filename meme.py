@@ -2,6 +2,13 @@ import discord,random, os
 from discord.ext import commands,tasks
 import asyncio, datetime, pytz
 from Database import *
+from twilio.rest import Client
+
+account_sid = os.getenv('SID')
+#os.environ['TWILIO_ACCOUNT_SID']
+auth_token = os.getenv('TWILIO')
+#os.environ['TWILIO_AUTH_TOKEN']
+client = Client(account_sid, auth_token)
 
 l = ["badum","wow","fbi","illuminati","moment","airhorn","bruh","oof","nani","sad","snoop","why","yeet"]
 b = commands.Bot(command_prefix = os.getenv('PREFIX'))
@@ -201,11 +208,12 @@ async def help(c):
 		)
 
 		embed.set_author(name='Help')
-		embed.add_field(name='.join',value='Join voice channel',inline=False)
-		embed.add_field(name='.leave',value='Leave voice channel',inline=False)
-		embed.add_field(name='.meme help',value='See memes commanands',inline=False)
-		embed.add_field(name='.meme random',value='Play random memes',inline=False)
-		embed.add_field(name='.remind help',value='See reminder commands',inline=False)
+		embed.add_field(name='.join',value='Join Voice Channel',inline=False)
+		embed.add_field(name='.leave',value='Leave Voice Channel',inline=False)
+		embed.add_field(name='.meme help',value='See Memes commanands',inline=False)
+		embed.add_field(name='.meme random',value='Play Random memes',inline=False)
+		embed.add_field(name='.remind help',value='See Reminder commands',inline=False)
+		embed.add_field(name='.send help',value='See Send commands',inline=False)
 
 		await c.send(embed=embed)
 		
@@ -239,7 +247,8 @@ async def remind(c,*,remind):
 			#pytz.timezone("Asia/Kuala_Lumpur")
 			if(len(d)==3 and len(t)==2 and dt>datetime.datetime.now(pytz.timezone("Asia/Kuala_Lumpur"))):
 				connect(c.guild.id)
-				insert(r[0],r[1],dt.strftime("%Y-%m-%d %H:%M"))
+				#insert(r[0],r[1],dt.strftime("%Y-%m-%d %H:%M"))
+				insert('From '+c.message.author.mention+' To '+r[0]+' ',r[1],dt.strftime("%Y-%m-%d %H:%M"))
 			else:
 				embed = discord.Embed(
 					colour = discord.Colour.orange()
@@ -261,6 +270,31 @@ async def who(c,*,ext):
 		await c.send('You are the most handsome person in this server, Shameer')
 	else:
 		await c.send('I do not want to answer that')
+
+
+@b.command()
+async def send(c,num,msg):
+	if len(sd) == 2:
+		try:
+			message = client.messages.create(
+								  body='Message is sent from a Discord Server Called *'+c.message.guild.name+'*. From user named *'+c.message.author.name+'*\n\n*Message:*\n'+sd[1],
+								  from_='whatsapp:+14155238886',
+								  to='whatsapp:'+str(sd[0])
+							  )
+		except:
+			embed = discord.Embed(
+				colour = discord.Colour.orange()
+			)
+			embed.add_field(name='Sending Problem',value='Please make sure the number entered is valid and the syntax is correct. Do .send help for send help',inline=False)
+			await c.send(embed=embed)
+	else:
+		embed = discord.Embed(
+			colour = discord.Colour.orange()
+		)
+		embed.set_author(name='Send')
+		embed.add_field(name='.send <number with country code> <space> <messages>',value='Send whatsapp messages to the number entered',inline=False)
+		embed.add_field(name='Message Format',value='It will include the name of the server and the discord name of the sender',inline=False)
+		await c.send(embed=embed)
 
 
 b.run(os.getenv('TOKEN'))
