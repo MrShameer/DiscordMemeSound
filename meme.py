@@ -10,7 +10,7 @@ auth_token = os.getenv('TWILIO')
 #os.environ['TWILIO_AUTH_TOKEN']
 client = Client(account_sid, auth_token)
 
-l = ["badum","wow","fbi","illuminati","moment","airhorn","bruh","oof","nani","sad","snoop","why","yeet"]
+l = ["badum","wow","fbi","illuminati","moment","airhorn","bruh","oof","nani","sad","snoop","why","yeet","knock"]
 b = commands.Bot(command_prefix = os.getenv('PREFIX'))
 
 b.remove_command('help')
@@ -160,6 +160,10 @@ async def meme(c,*,meme):
 		elif(meme=="yeet"):
 			yeet = discord.FFmpegPCMAudio('Sounds/yeet.mp3')
 			voice_client.play(yeet, after=None)
+
+		elif(meme=="knock"):
+			knock = discord.FFmpegPCMAudio('Sounds/knock.mp3')
+			voice_client.play(knock, after=None)
 		
 		#malay meme
 		elif(meme=="2kali"):
@@ -192,7 +196,7 @@ async def meme(c,*,meme):
 			)
 
 			mh.set_author(name='.meme <name>  OR  .m <name>')
-			mh.add_field(name='Where <name> is:',value='badum\n\twow\n\tfbi\n\tilluminati\n\tmoment\n\tairhorn\n\tbruh\n\toof\n\tnani\n\tsad\n\tsnoop\n\twhy\n\tyeet',inline=False)
+			mh.add_field(name='Where <name> is:',value='badum\n\twow\n\tfbi\n\tilluminati\n\tmoment\n\tairhorn\n\tbruh\n\toof\n\tnani\n\tsad\n\tsnoop\n\twhy\n\tyeet\n\tknock',inline=False)
 			mh.add_field(name='Malay memes:',value='2kali\n\tbetul\n\takal\n\tkur\n\tjawab\n\ttaktau',inline=False)
 			await c.send(embed=mh)
 	except:
