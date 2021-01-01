@@ -216,7 +216,7 @@ async def help(c):
 		embed.add_field(name='.leave',value='Leave Voice Channel',inline=False)
 		embed.add_field(name='.meme help',value='See Memes commanands',inline=False)
 		embed.add_field(name='.meme random',value='Play Random memes',inline=False)
-		embed.add_field(name='.remind help',value='See Reminder commands',inline=False)
+		embed.add_field(name='.remind help',value='See Reminder commands (Beta)',inline=False)
 		#embed.add_field(name='.send help',value='See Send commands',inline=False)
 
 		await c.send(embed=embed)
@@ -234,7 +234,7 @@ async def remind(c,*,remind):
 		)
 		embed.set_author(name='Reminder')
 		embed.add_field(name='.remind <data>  OR  .r <data>',value='Used to store reminders and it will notify the person tagged 10 minutes before',inline=False)
-		embed.add_field(name='Where <data> is:',value='<Mentions>, <Messages>, <Day/Month/Year>, <Time in 24 hours>',inline=False)
+		embed.add_field(name='Where <data> is:',value='<Mentions>, <Messages>, <Day/Month/Year>, <Time in 24 hours (Malaysian Time)>',inline=False)
 		await c.send(embed=embed)
 		return
 
@@ -265,7 +265,7 @@ async def remind(c,*,remind):
 			colour = discord.Colour.orange()
 		)
 		embed.set_author(name='Wrong Format')
-		embed.add_field(name='Please enter according to:',value='<Mentions>, <Messages>, <Day/Month/Year>, <Time in 24 hours>\n\nDo ".remind help." for reminnder help',inline=False)
+		embed.add_field(name='Please enter according to:',value='<Mentions>, <Messages>, <Day/Month/Year>, <Time in 24 hours (Malaysian Time)>\n\nDo ".remind help." for reminnder help',inline=False)
 		await c.send(embed=embed)
 
 @b.command()
