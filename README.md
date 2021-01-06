@@ -25,7 +25,7 @@ Note that this is still in testing. But feel free to try it out.
 
 
 ## Adding the Bot
-You can add the bot to your server by the links below:
+You can add the bot to your server through the links below:
 
 ### [TopGG](https://top.gg/bot/783242690435219497)
 ### [Direct Bot Link](https://discord.com/api/oauth2/authorize?client_id=783242690435219497&permissions=36781312&scope=bot)
