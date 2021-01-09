@@ -10,7 +10,9 @@ auth_token = os.getenv('TWILIO')
 #os.environ['TWILIO_AUTH_TOKEN']
 client = Client(account_sid, auth_token)
 
-l = ["badum","wow","fbi","illuminati","moment","airhorn","bruh","oof","nani","sad","snoop","why","yeet","knock"]
+files = [os.path.splitext(filename)[0] for filename in os.listdir('Sounds/English')]
+filemalay = [os.path.splitext(filename)[0] for filename in os.listdir('Sounds/Malay')]
+#l = ["badum","wow","fbi","illuminati","moment","airhorn","bruh","oof","nani","sad","snoop","why","yeet","knock"]
 b = commands.Bot(command_prefix = os.getenv('PREFIX'))
 
 b.remove_command('help')
@@ -45,11 +47,16 @@ async def on_ready():
 		print("status error")
 		pass
 	
-	for ser in b.guilds: 
+	for ser in b.guilds:
+		'''try:
+			print(ser)
+		except:
+			pass'''
 		for channel in ser.text_channels:
 			if channel.permissions_for(ser.me).send_messages:
 				#await channel.send("The bot will be offline for updates")
 				#await channel.send("The bot is back online")
+				#await channel.send("Try the new <.remind> feature. Do <.remind help> for help. Note that this is still in Beta Testing")
 				break
 
 
@@ -107,88 +114,17 @@ async def meme(c,*,meme):
 		voice_client: discord.VoiceClient = discord.utils.get(b.voice_clients, guild=guild)
 		
 		if(meme=="random"):
-			meme=random.choice(l)
+			meme=random.choice(files)
+			au = discord.FFmpegPCMAudio('Sounds/English/'+meme+'.mp3')
+			voice_client.play(au, after=None)
 
-		if(meme=="badum"):
-			badum = discord.FFmpegPCMAudio('Sounds/badum-tss.mp3')
-			voice_client.play(badum, after=None)
+		elif meme in files:
+			au = discord.FFmpegPCMAudio('Sounds/English/'+meme+'.mp3')
+			voice_client.play(au, after=None)
 
-		elif(meme=="wow"):
-			wow = discord.FFmpegPCMAudio('Sounds/anime-wow-sound-effect.mp3')
-			voice_client.play(wow, after=None)
-
-		elif(meme=="fbi"):
-			fbi = discord.FFmpegPCMAudio('Sounds/fbi-open-up.mp3')
-			voice_client.play(fbi, after=None)
-
-		elif(meme=="illuminati"):
-			illuminati = discord.FFmpegPCMAudio('Sounds/illuminati.mp3')
-			voice_client.play(illuminati, after=None)
-
-		elif(meme=="moment"):
-			moment = discord.FFmpegPCMAudio('Sounds/it-was-at-this-moment.mp3')
-			voice_client.play(moment, after=None)
-
-		elif(meme=="airhorn"):
-			airhorn = discord.FFmpegPCMAudio('Sounds/airhorn.mp3')
-			voice_client.play(airhorn, after=None)
-
-		elif(meme=="bruh"):
-			bruh = discord.FFmpegPCMAudio('Sounds/bruh.mp3')
-			voice_client.play(bruh, after=None)
-
-		elif(meme=="oof"):
-			oof = discord.FFmpegPCMAudio('Sounds/oof.mp3')
-			voice_client.play(oof, after=None)
-
-		elif(meme=="nani"):
-			nani = discord.FFmpegPCMAudio('Sounds/nani.mp3')
-			voice_client.play(nani, after=None)
-
-		elif(meme=="sad"):
-			sad = discord.FFmpegPCMAudio('Sounds/sad.mp3')
-			voice_client.play(sad, after=None)
-
-		elif(meme=="snoop"):
-			snoop = discord.FFmpegPCMAudio('Sounds/snoop.mp3')
-			voice_client.play(snoop, after=None)
-
-		elif(meme=="why"):
-			why = discord.FFmpegPCMAudio('Sounds/why-are.mp3')
-			voice_client.play(why, after=None)
-
-		elif(meme=="yeet"):
-			yeet = discord.FFmpegPCMAudio('Sounds/yeet.mp3')
-			voice_client.play(yeet, after=None)
-
-		elif(meme=="knock"):
-			knock = discord.FFmpegPCMAudio('Sounds/knock.mp3')
-			voice_client.play(knock, after=None)
-		
-		#malay meme
-		elif(meme=="2kali"):
-			kali = discord.FFmpegPCMAudio('Sounds/Malay/2kali.mp3')
-			voice_client.play(kali, after=None)
-
-		elif(meme=="betul"):
-			kali = discord.FFmpegPCMAudio('Sounds/Malay/betulahtu.mp3')
-			voice_client.play(kali, after=None)
-
-		elif(meme=="akal"):
-			kali = discord.FFmpegPCMAudio('Sounds/Malay/akal.mp3')
-			voice_client.play(kali, after=None)
-
-		elif(meme=="kur"):
-			kali = discord.FFmpegPCMAudio('Sounds/Malay/kur.mp3')
-			voice_client.play(kali, after=None)
-
-		elif(meme=="jawab"):
-			kali = discord.FFmpegPCMAudio('Sounds/Malay/jawab.mp3')
-			voice_client.play(kali, after=None)
-
-		elif(meme=="taktau"):
-			kali = discord.FFmpegPCMAudio('Sounds/Malay/taktahu.mp3')
-			voice_client.play(kali, after=None)
+		elif meme in filemalay:
+			au = discord.FFmpegPCMAudio('Sounds/Malay/'+meme+'.mp3')
+			voice_client.play(au, after=None)
 
 		else:
 			mh = discord.Embed(
@@ -196,8 +132,10 @@ async def meme(c,*,meme):
 			)
 
 			mh.set_author(name='.meme <name>  OR  .m <name>')
-			mh.add_field(name='Where <name> is:',value='badum\n\twow\n\tfbi\n\tilluminati\n\tmoment\n\tairhorn\n\tbruh\n\toof\n\tnani\n\tsad\n\tsnoop\n\twhy\n\tyeet\n\tknock',inline=False)
-			mh.add_field(name='Malay memes:',value='2kali\n\tbetul\n\takal\n\tkur\n\tjawab\n\ttaktau',inline=False)
+			mh.add_field(name='Where <name> is:',value='\n'.join(files),inline=False)
+			#badum\n\twow\n\tfbi\n\tilluminati\n\tmoment\n\tairhorn\n\tbruh\n\toof\n\tnani\n\tsad\n\tsnoop\n\twhy\n\tyeet\n\tknock
+			mh.add_field(name='Malay memes:',value='\n'.join(filemalay),inline=False)
+			#'Malay memes:',value='2kali\n\tbetul\n\takal\n\tkur\n\tjawab\n\ttaktau'
 			await c.send(embed=mh)
 	except:
 		pass
