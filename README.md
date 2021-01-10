@@ -1,3 +1,14 @@
+
+<p align="center">
+  <a href="#features">Features</a>
+  •
+  <a href="#usage">Usage</a>
+  •
+  <a href="#plugins">Plugins</a>
+  •
+  <a href="#adding-the-bot">Adding The Bot</a>
+</p>
+
 # DiscordMemeSound
 
 A simple bot to play popular meme sounds in voice channel.
