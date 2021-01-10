@@ -6,6 +6,7 @@
   <br>
 </h1>
 
+<h4 align="center">Memes and Reminder.</h4>
 
 <p align="center">
   <a href="#features">Features</a>
