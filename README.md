@@ -1,4 +1,12 @@
 
+
+<h1 align="center">
+  <br>
+  Red Discord Bot
+  <br>
+</h1>
+
+
 <p align="center">
   <a href="#features">Features</a>
   •
