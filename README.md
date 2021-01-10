@@ -2,7 +2,7 @@
 
 <h1 align="center">
   <br>
-  Red Discord Bot
+  Meme Sound Bot
   <br>
 </h1>
 
