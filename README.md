@@ -15,8 +15,6 @@
   •
   <a href="#usage">Usage</a>
   •
-  <a href="#plugins">Plugins</a>
-  •
   <a href="#adding-the-bot">Adding The Bot</a>
 </p>
 
