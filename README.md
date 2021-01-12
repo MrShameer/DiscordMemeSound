@@ -2,7 +2,7 @@
 
 <h1 align="center">
   <br>
-  <a href="https://github.com/MrShameer/DiscordMemeSound"><img src="https://i.imgur.com/UKVE5pB.jpg" alt="MemeSound - Discord Bot"></a>
+  <a href="https://github.com/MrShameer/DiscordMemeSound"><img src="https://imgur.com/gallery/H48i1ON" alt="MemeSound - Discord Bot"></a>
   <br>
   Meme Sound Bot
   <br>
