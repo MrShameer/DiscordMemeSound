@@ -35,6 +35,9 @@ A simple bot to play popular meme sounds in voice channel.
 ### Memes
 - `.meme help` > **Show Memes help command and list of memes**
 - `.meme <NAME>` > **Play the meme requested. Where `<NAME>` is the name of the meme**
+```
+See [Sounds Folder](Sounds)
+```
 - `.meme random` > **Play random memes**
 
 ### Reminder `Beta`
