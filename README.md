@@ -34,16 +34,16 @@ A simple bot to play popular meme sounds in voice channel.
 
 ### Memes
 - `.meme help` > **Show Memes help command and list of memes**
-- `.meme <NAME>` > **Play the meme requested. Where _<NAME>_ is the name of the meme**
+- `.meme <NAME>` > **Play the meme requested. Where `<NAME>` is the name of the meme**
 - `.meme random` > **Play random memes**
 
 ### Reminder `Beta`
 Note that this is still in testing. But feel free to try it out.
 - `.reminder help` > **Show reminder commands**
-- `.remider <DATA>` > **Store reminders.Where** ` _<DATA>_ ` is**
+- `.remider <DATA>` > **Store reminders.Where `<DATA>` is**
   
 ```
-_<Mentions>, <Messages>, <Day/Month/Year>, <Time in 24 hours (Malaysian Time)>_**
+_<Mentions>, <Messages>, <Day/Month/Year>, <Time in 24 hours (Malaysian Time)>_
 ```
 
 
