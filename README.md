@@ -43,7 +43,7 @@ Note that this is still in testing. But feel free to try it out.
 - `.remider <DATA>` > **Store reminders.Where `<DATA>` is**
   
 ```
-_<Mentions>, <Messages>, <Day/Month/Year>, <Time in 24 hours (Malaysian Time)>_
+<Mentions>, <Messages>, <Day/Month/Year>, <Time in 24 hours (Malaysian Time)>
 ```
 
 
