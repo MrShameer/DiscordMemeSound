@@ -198,14 +198,14 @@ async def remind(c,*,remind):
 					colour = discord.Colour.orange()
 				)
 				embed.set_author(name='Wrong Date or Time')
-				embed.add_field(name='Please enter Date or Time that is in the future',value='Seriously? Are you time travelling?\n\nDo ".remind help." for reminder help',inline=False)
+				embed.add_field(name='Please enter Date or Time that is in the future',value='Seriously? Are you time travelling?\n\nDo '+prf+'"remind help." for reminder help',inline=False)
 				await c.send(embed=embed)
 	except:
 		embed = discord.Embed(
 			colour = discord.Colour.orange()
 		)
 		embed.set_author(name='Wrong Format')
-		embed.add_field(name='Please enter according to:',value='<Mentions>, <Messages>, <Day/Month/Year>, <Time in 24 hours (Malaysian Time)>\n\nDo ".remind help." for reminnder help',inline=False)
+		embed.add_field(name='Please enter according to:',value='<Mentions>, <Messages>, <Day/Month/Year>, <Time in 24 hours (Malaysian Time)>\n\nDo '+prf+'"remind help." for reminnder help',inline=False)
 		await c.send(embed=embed)
 
 @b.command()
