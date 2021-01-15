@@ -13,7 +13,9 @@ client = Client(account_sid, auth_token)
 files = [os.path.splitext(filename)[0] for filename in os.listdir('Sounds/English')]
 filemalay = [os.path.splitext(filename)[0] for filename in os.listdir('Sounds/Malay')]
 #l = ["badum","wow","fbi","illuminati","moment","airhorn","bruh","oof","nani","sad","snoop","why","yeet","knock"]
-b = commands.Bot(command_prefix = os.getenv('PREFIX'))
+
+prf = os.getenv('PREFIX')
+b = commands.Bot(command_prefix = prf)
 
 b.remove_command('help')
 
@@ -131,7 +133,7 @@ async def meme(c,*,meme):
 				colour = discord.Colour.orange()
 			)
 
-			mh.set_author(name='.meme <name>  OR  .m <name>')
+			mh.set_author(name=prf + 'meme <name>  OR  '+prf+'m <name>')
 			mh.add_field(name='Where <name> is:',value='\n'.join(files),inline=False)
 			#badum\n\twow\n\tfbi\n\tilluminati\n\tmoment\n\tairhorn\n\tbruh\n\toof\n\tnani\n\tsad\n\tsnoop\n\twhy\n\tyeet\n\tknock
 			mh.add_field(name='Malay memes:',value='\n'.join(filemalay),inline=False)
@@ -150,11 +152,11 @@ async def help(c):
 		)
 
 		embed.set_author(name='Help')
-		embed.add_field(name='.join',value='Join Voice Channel',inline=False)
-		embed.add_field(name='.leave',value='Leave Voice Channel',inline=False)
-		embed.add_field(name='.meme help',value='See Memes commanands',inline=False)
-		embed.add_field(name='.meme random',value='Play Random memes',inline=False)
-		embed.add_field(name='.remind help',value='See Reminder commands (Beta)',inline=False)
+		embed.add_field(name=prf+'join',value='Join Voice Channel',inline=False)
+		embed.add_field(name=prf+'leave',value='Leave Voice Channel',inline=False)
+		embed.add_field(name=prf+'meme help',value='See Memes commanands',inline=False)
+		embed.add_field(name=prf+'meme random',value='Play Random memes',inline=False)
+		embed.add_field(name=prf+'remind help',value='See Reminder commands (Beta)',inline=False)
 		#embed.add_field(name='.send help',value='See Send commands',inline=False)
 
 		await c.send(embed=embed)
@@ -171,7 +173,7 @@ async def remind(c,*,remind):
 			colour = discord.Colour.orange()
 		)
 		embed.set_author(name='Reminder')
-		embed.add_field(name='.remind <data>  OR  .r <data>',value='Used to store reminders and it will notify the person tagged 10 minutes before',inline=False)
+		embed.add_field(name=prf+'remind <data>  OR  '+prf+'r <data>',value='Used to store reminders and it will notify the person tagged 10 minutes before',inline=False)
 		embed.add_field(name='Where <data> is:',value='<Mentions>, <Messages>, <Day/Month/Year>, <Time in 24 hours (Malaysian Time)>',inline=False)
 		await c.send(embed=embed)
 		return
