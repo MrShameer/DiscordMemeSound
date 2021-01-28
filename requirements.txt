@@ -40,8 +40,8 @@ PyScreeze==0.1.26
 PyTweening==1.0.3
 pytz==2020.5
 pywin32-ctypes==0.2.0
-quote==2.0.4
-quoters==0.18
+quote
+quoters
 requests==2.25.1
 selenium==3.141.0
 six==1.15.0
