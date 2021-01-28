@@ -4,6 +4,10 @@ import asyncio, datetime, pytz
 from Database import *
 from twilio.rest import Client
 
+from quoters import Quote #tak bole search tapi anime
+#from quote import quote#bole search
+import quote.quote as quotes
+
 account_sid = os.getenv('SID')
 #os.environ['TWILIO_ACCOUNT_SID']
 auth_token = os.getenv('TWILIO')
@@ -115,7 +119,7 @@ async def meme(c,*,meme):
 		guild = c.guild
 		voice_client: discord.VoiceClient = discord.utils.get(b.voice_clients, guild=guild)
 		
-		if(meme=="random"):
+		if meme=="random":
 			meme=random.choice(files)
 			au = discord.FFmpegPCMAudio('Sounds/English/'+meme+'.mp3')
 			voice_client.play(au, after=None)
@@ -157,8 +161,8 @@ async def help(c):
 		embed.add_field(name=prf+'meme help',value='See Memes commanands',inline=False)
 		embed.add_field(name=prf+'meme random',value='Play Random memes',inline=False)
 		embed.add_field(name=prf+'remind help',value='See Reminder commands (Beta)',inline=False)
+		embed.add_field(name=prf+'quote help',value='See quote commands',inline=False)
 		#embed.add_field(name='.send help',value='See Send commands',inline=False)
-
 		await c.send(embed=embed)
 		
 	except:
@@ -207,6 +211,53 @@ async def remind(c,*,remind):
 		embed.set_author(name='Wrong Format')
 		embed.add_field(name='Please enter according to:',value='<Mentions>, <Messages>, <Day/Month/Year>, <Time in 24 hours (Malaysian Time)>\n\nDo '+prf+'"remind help." for reminnder help',inline=False)
 		await c.send(embed=embed)
+
+
+@b.command(aliases=['q','quotes'])
+async def quote(c, find=None):
+	if not find:
+		#random
+		#await c.send(Quote.print())
+		embed = discord.Embed(
+			colour = discord.Colour.orange()
+		)
+		embed.add_field(name='Random Quote',value=Quote.print(),inline=False)
+		await c.send(embed=embed)
+	elif find == 'anime':
+		embed = discord.Embed(
+			colour = discord.Colour.orange()
+		)
+		embed.add_field(name='Anime Quote',value=Quote.print_anime_quote(),inline=False)
+		await c.send(embed=embed)
+		#await c.send(Quote.print_anime_quote())
+	elif find == 'series':
+		embed = discord.Embed(
+			colour = discord.Colour.orange()
+		)
+		embed.add_field(name='Series Quote',value=Quote.print_series_quote(),inline=False)
+		await c.send(embed=embed)
+		#await c.send(Quote.print_series_quote())
+	elif find == 'help':
+		embed = discord.Embed(
+			colour = discord.Colour.orange()
+		)
+		embed.set_author(name='Quote Help')
+		embed.add_field(name=prf+'quote',value='Random Quotes',inline=False)
+		embed.add_field(name=prf+'quote anime',value='Random anime quote',inline=False)
+		embed.add_field(name=prf+'quote series',value='Random series quote',inline=False)
+		embed.add_field(name=prf+'quote <search>',value='Where <search> is any keyword you want to search',inline=False)
+		embed.add_field(name=prf+'Extra Commands',value='You can also use ".q .." or ".quotes .."',inline=False)
+		await c.send(embed=embed)
+	else:
+		#cari
+		qs = quotes(find,limit=1)
+		#await c.send(qs[0]['quote'] + ' ~' + qs[0]['author'])
+		embed = discord.Embed(
+			colour = discord.Colour.orange()
+		)
+		embed.add_field(name=find+' Quote',value=qs[0]['quote'] + ' ~' + qs[0]['author'],inline=False)
+		await c.send(embed=embed)
+
 
 @b.command()
 async def who(c,*,ext):
