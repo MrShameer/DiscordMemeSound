@@ -5,7 +5,7 @@ from Database import *
 from twilio.rest import Client
 
 from quoters import Quote #tak bole search tapi anime
-from quote import quote #bole search
+from quote.quote import quote #bole search
 qu = quote
 
 account_sid = os.getenv('SID')
