@@ -54,17 +54,22 @@ async def on_ready():
 		pass
 	
 	for ser in b.guilds:
-		'''try:
-			print(ser)
-		except:
-			pass'''
 		for channel in ser.text_channels:
 			if channel.permissions_for(ser.me).send_messages:
-				#await channel.send("The bot will be offline for updates")
-				#await channel.send("The bot is back online")
-				#await channel.send("Try the new <.remind> feature. Do <.remind help> for help. Note that this is still in Beta Testing")
+				#try:
+					#await channel.send(embed=ups('"Try the new .quote feature.','Do <.quote help> for help.'))
+				#except:
+					#pass
 				break
 
+def ups(title, msg):
+	embed = discord.Embed(
+		colour = discord.Colour.orange()
+	)
+
+	embed.set_author(name='Updates')
+	embed.add_field(name=title,value=msg,inline=False)
+	return embed
 
 @tasks.loop(seconds=3)
 async def find():
