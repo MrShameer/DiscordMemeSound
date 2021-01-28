@@ -5,7 +5,7 @@ from Database import *
 from twilio.rest import Client
 
 from quoters import Quote #tak bole search tapi anime
-from quote import * #bole search
+from quote import quote #bole search
 #import quote as qu
 
 account_sid = os.getenv('SID')
@@ -213,8 +213,8 @@ async def remind(c,*,remind):
 		await c.send(embed=embed)
 
 
-@b.command(aliases=['q','quotes'])
-async def quote(c, find=None):
+@b.command(aliases=['q','quotes','quote'])
+async def _quote(c, find=None):
 	if not find:
 		#random
 		#await c.send(Quote.print())
@@ -250,7 +250,7 @@ async def quote(c, find=None):
 		await c.send(embed=embed)
 	else:
 		#cari
-		qs = quote.quote(find,limit=1)
+		qs = quote(find,limit=1)
 		#await c.send(qs[0]['quote'] + ' ~' + qs[0]['author'])
 		embed = discord.Embed(
 			colour = discord.Colour.orange()
