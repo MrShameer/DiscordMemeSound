@@ -47,6 +47,11 @@ Note that this is still in testing. But feel free to try it out.
 <Mentions>, <Messages>, <Day/Month/Year>, <Time in 24 hours (Malaysian Time)>
 ```
 
+### Quote <.quote> , <.q>
+- `.quote help` > **Show quote commands**
+- `.quote` > **Gives random quotes**
+- `.quote anime` > **Gives random anime quotes**
+- `.quote anime` > **Gives random series quotes**
 
 ## Adding the Bot
 You can add the bot to your server through the links below:
