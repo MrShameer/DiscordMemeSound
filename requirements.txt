@@ -7,3 +7,5 @@ ffmpeg
 asyncio
 datetime
 twilio==6.50.0
+quoters
+quote
