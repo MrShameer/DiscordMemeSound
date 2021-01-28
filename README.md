@@ -26,6 +26,7 @@ A simple bot to play popular meme sounds in voice channel.
 
 1. Play meme sounds like ***Fbi Open Up*** , ***Nani*** , ***Illuminati*** , many more.
 2. Store reminders and can display back the message, 10 minutes before the time set.
+3. Post quotes and can search for quotes.
 
 ## Usage
 
@@ -47,7 +48,7 @@ Note that this is still in testing. But feel free to try it out.
 <Mentions>, <Messages>, <Day/Month/Year>, <Time in 24 hours (Malaysian Time)>
 ```
 
-### Quote <.quote> , <.q>
+### Quote
 - `.quote help` > **Show quote commands**
 - `.quote` > **Gives random quotes**
 - `.quote anime` > **Gives random anime quotes**
