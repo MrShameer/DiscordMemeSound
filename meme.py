@@ -52,7 +52,9 @@ async def on_ready():
 	except:
 		print("status error")
 		pass
-	
+
+	#outname()
+
 	for ser in b.guilds:
 		for channel in ser.text_channels:
 			if channel.permissions_for(ser.me).send_messages:
@@ -70,6 +72,16 @@ def ups(title, msg):
 	embed.set_author(name='Updates')
 	embed.add_field(name=title,value=msg,inline=False)
 	return embed
+
+def outname():
+	with open('server.txt', 'w') as myfile:
+		i=0
+		for server in b.guilds:
+			try:
+				i+=1
+				myfile.write(str(i)+". "+str(server.name)+"\n")
+			except:
+				pass
 
 @tasks.loop(seconds=3)
 async def find():
