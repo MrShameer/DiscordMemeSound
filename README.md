@@ -8,8 +8,8 @@
   <br>
 </h1>
 
-<h4 align="center">Memes and Reminder. ![Hits](https://hitcounter.pythonanywhere.com/count/tag.svg?url=https%3A%2F%2Fgithub.com%2FMrShameer%2FDiscordMemeSound)</h4>
-
+<h4 align="center">Memes and Reminder.</h4>
+<h4>![Hits](https://hitcounter.pythonanywhere.com/count/tag.svg?url=https%3A%2F%2Fgithub.com%2FMrShameer%2FDiscordMemeSound)</h4>
 <p align="center">
   <a href="#features">Features</a>
   •
