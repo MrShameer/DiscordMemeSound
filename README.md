@@ -9,6 +9,7 @@
 </h1>
 
 <h4 align="center">Memes and Reminder.</h4>
+<img src="https://hitcounter.pythonanywhere.com/count/tag.svg?url=https%3A%2F%2Fgithub.com%2FMrShameer%2FDiscordMemeSound" alt="Hits">
 
 <p align="center">
   <a href="#features">Features</a>
